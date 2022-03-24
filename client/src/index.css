@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.App {
+    background: #EEE;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header {
+    background: #27AE60;
+    display: flex;
+    justify-content: space-between;
+    height: 10vh;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    margin-left: 5vh;
+}
+
+.logo {
+    width: 55px;
+    height: 55px;
+    margin-right: 2vh;
+}
+
+.title {
+    width: 70%;
+    padding-left: 20px;
+    color: #EEE;
+}
+
+.navbar {
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #EEE;
+}
+
+.navbar .link {
+    padding: 5px;
+}
+
+.navbar .link:hover {
+    padding-bottom: 0;
+    padding-top: 10px;
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    margin-top: 10vh;
+    height: 70vh;
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.left {
+    border-right: 0.5px solid rgb(0,0,0, 0.3);
+    width: 60%;
+    padding: 10vh;
+}
+
+.left p {
+    line-height: 30px;
+}
+
+.right {
+    border-left: 0.5px solid rgb(0,0,0, 0.3);
+    width: 40%;
+    padding: 10vh;
+    text-align: center;
+}
+
+.left h4 {
+    margin-top: 10vh;
+}
+
+.loginas {
+    display: flex;
+}
+
+.btn {
+    margin-top: 30px;
+    padding-bottom: 10px;
+    margin-right: 35px;
+    position: relative;
+    color: black;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left:0;
+    bottom: 0;
+    background: black;
+    transform: scale(0, 1);
+    transition: transform 0.3s ease;
+}
+
+.btn:hover::after {
+    transform: scale(1, 1);
+}
+
+.login {
+    line-height: 60px;
+    margin-top: 5vh;
+}
+
+.form input {
+    outline: none;
+    margin-left: 7%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 5px;
+    background: transparent;
+}
+
+.form button {
+    padding: 5px;
+    border-radius: 10px;
+    width: 70px;
+    margin-top: 30px;
+    background: transparent;
+    border: 1px solid #EEE;
+    border: 1px solid black;
+}
+
+.form button:hover{
+    background: rgb(0, 0, 0, 0.2);
+    color: black;
+}
+
+.container2 {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iform {
+    border: 2px solid black;
+    width: 60vh;
+    height: 70vh;
+    text-align: center;
+    line-height: 60px;
+}
+
+.iform h2 {
+    margin-top: 2vh;
+}
+
+.input {
+    margin-top: 5vh;
+}
+
+.input input {
+    outline: none;
+    margin-left: 7%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding: 5px;
+    background: transparent;
+}
+
+.btn-cls {
+    margin-top: 10vh;
+}
