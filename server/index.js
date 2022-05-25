@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const PORT = 5000 || process.env.PORT;
 
-mongoose.connect('mongodb+srv://user:user123@cluster1.gle5k.mongodb.net/student', () => console.log('connected to db'));
+mongoose.connect('', () => console.log('connected to db'));
 
 
 const randomeIdGenerator = (uni) => {
