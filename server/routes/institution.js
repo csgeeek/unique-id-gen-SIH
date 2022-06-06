@@ -13,6 +13,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.get('/:id1/:id2', async (req, res) => {
+    try{
+        const institution = await Institution.find().where('institutionId').equals(req.params.id1);
+        let result = [];
+        institution[0].students.map(student => {
+            if(student.regId === req.params.id2){
+                result = student;
+            }
+        });
+        if(result.length === 0){
+            res.json({ message: 'Student not found' });
+        }
+        else res.json(result);
+    }
+    catch(err){
+        res.json({ message: err });
+    }
+});
+
 router.patch('/:id', async (req, res) => {
 
     const student = new Student({
