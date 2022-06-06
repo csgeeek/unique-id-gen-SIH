@@ -4,12 +4,12 @@ import Button from './Button'
 const Left = ({onclick1, onclick2, text1, text2}) => {
   return (
     <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi mollitia error officiis eum quae distinctio velit minima deserunt a ea. Laborum atque dolores quisquam, suscipit harum nostrum accusamus quam ipsa at vero in laudantium ipsum eveniet officiis perspiciatis asperiores nisi quos, dolore doloremque, nobis veritatis molestias! Consequuntur amet blanditiis odio pariatur iste expedita quos cumque animi ipsa hic facere dolor exercitationem alias doloribus, praesentium minus molestiae cum ut omnis numquam.</p>
+        <p>Our website helps central and state governments to uniquely identify each student who are from diverse educational backgrounds, making the time-consuming process of college tracking and allotment of grants and fellowships easier</p>
         <br />
         <h4>Login as</h4>
         <div className="loginas">
-            <Button text={text1} onclick={onclick1}/>
-            <Button text={text2} onclick={onclick2}/>
+            <Button text={text1} onclick={onclick1} img="/images/govt.jpeg"/>
+            <Button text={text2} onclick={onclick2} img="/images/university.jpeg"/>
         </div>
     </div>
   )

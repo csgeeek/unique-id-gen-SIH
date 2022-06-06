@@ -1,4 +1,3 @@
-const { urlencoded } = require('express');
 const express = require('express');
 const Student = require('../models/Student');
 
@@ -17,13 +16,15 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
+    // console.log(req.params.id);
     try{
         const regId = req.params.id;
         const student = await Student.find().where('regId').equals(regId);
+        console.log(student);
         res.json(student);
-        // console.log(student);
     }
     catch(err){
+        console.log('error');
         res.json({ message: err });
     }
 });

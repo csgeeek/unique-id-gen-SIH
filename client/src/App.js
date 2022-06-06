@@ -2,6 +2,8 @@ import Header from './components/Header'
 import Left from './components/Left'
 import Right from './components/Right'
 import Institution from './components/Institution'
+import Government from './components/Government'
+import Success from './components/Success'
 import { useState } from 'react'
 
 import {
@@ -35,11 +37,13 @@ function App() {
                   <Left onclick1={click1} onclick2={click2} text1="GOVERNMENT" text2="INSTITUTION"/>
                 </div>
                 <div className="right">
-                  {show===1 ?<Right text='GOVERNMENT'/> : <Right text='INSTITUTION'/>}
+                  {show===1 ?<Right text='GOVERNMENT' value="0"/> : <Right text='INSTITUTION' value="1"/>}
                 </div>
               </div>
             }></Route>
-            <Route path="/institution" element={ <Institution/> }></Route>
+            <Route path="/inst" element={ <Institution/> }></Route>
+            <Route path="/govt" element={<Government/>}></Route>
+            <Route path="/success" element={<Success/>}></Route>
           </Routes>
         </div>
       </Router>

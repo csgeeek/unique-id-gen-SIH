@@ -2,23 +2,17 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+const PORT = process.env.PORT || 5000;
 
-const PORT = 5000 || process.env.PORT;
+mongoose.connect(process.env.DB_URI, () => console.log('connected to db'));
 
-mongoose.connect('', () => console.log('connected to db'));
-
-
-const randomeIdGenerator = (uni) => {
-    const getRandomPin = (chars, len)=>[...Array(len)].map(
-        (i)=>chars[Math.floor(Math.random()*chars.length)]
-     ).join('');
-
-
-};
+// const universityIdGenerator = () => {
+    
+// };
 
 // MIDDLEWARES
-
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 const govtRoutes = require('./routes/govt');
 app.use('/govt', govtRoutes);
