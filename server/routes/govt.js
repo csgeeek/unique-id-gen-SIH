@@ -14,10 +14,9 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    // console.log(req.params.id);
     try{
-        const uniqId = req.params.id;
-        const institution = await Institution.find().where('uniqId').equals(uniqId);
+        const institutionId = req.params.id;
+        const institution = await Institution.find().where('institutionId').equals(institutionId);
         console.log(institution);
         res.json(institution);
     }
@@ -25,6 +24,21 @@ router.get('/:id', async (req, res) => {
         console.log('error');
         res.json({ message: err });
     }
+});
+
+router.post('/', async (req, res) => {
+    const institution = new Institution({
+        institutionId: req.body.institutionId,
+        students: req.body.students
+    });
+    console.log(institution);
+    try{
+        await institution.save();
+        res.json(institution);
+    }
+    catch(err){
+        res.json({ message: err });
+    };
 });
 
 module.exports = router;

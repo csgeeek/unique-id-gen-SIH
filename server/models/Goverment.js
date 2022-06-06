@@ -7,6 +7,6 @@ const GovernmentSchema = mongoose.Schema({
     }]
 });
 
-const Government = mongoose.model('Governmet', GovernmentSchema);
+const Government = mongoose.model('Government', GovernmentSchema);
 
 module.exports = Government;

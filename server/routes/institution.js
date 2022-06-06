@@ -1,19 +1,19 @@
 const express = require('express');
+const Institution = require('../models/Institution');
 const Student = require('../models/Student');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try{
-        const student = await Student.find();
-        res.json(student);
-        // console.log(res);
+        const institution = await Institution.find().where('institutionId').equals(req.params.id);
+        res.json(institution[0].students);
     }
     catch(err){
         res.json({ message: err });
     }
 });
 
-router.post('/', async (req, res) => {
+router.patch('/:id', async (req, res) => {
 
     const student = new Student({
         regId: req.body.regId,
@@ -21,16 +21,16 @@ router.post('/', async (req, res) => {
         otherDetails: req.body.otherDetails
     });
     try{
-        await student.save();
-        res.json(student);
+        const institution = await Institution.find().where('institutionId').equals(req.params.id);
+        const institutionId = institution[0]._id;
+
+        const doc = await Institution.findByIdAndUpdate(institutionId, {"$addToSet": {students: student}}, { new: true, runValidators: false,});
+
+        res.json(doc);
     }
     catch(err){
         res.json({ message: err});
     }
-    console.log(req.body);
-    // res.send('Student data sending');
-
-    // console.log('In institution');
 });
 
 module.exports = router; 

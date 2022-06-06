@@ -1,14 +1,25 @@
 const mongoose = require('mongoose');
 
-const InstitutionSchema = mongoose.Schema({
-    uniqId: {
+const StudentSchema = mongoose.Schema({
+    regId: {
         type: String,
         required: true
     },
-    students: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student'
-    }]
+    studentName: {
+        type: String,
+    },
+    otherDetails: {
+        type: String
+    }
+});
+const InstitutionSchema = mongoose.Schema({
+    institutionId: {
+        type: String,
+        required: true
+    },
+    students: [
+        StudentSchema
+    ]
 });
 
 const Institution = mongoose.model('Institution', InstitutionSchema);
