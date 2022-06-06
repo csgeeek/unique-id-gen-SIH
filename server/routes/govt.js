@@ -1,14 +1,12 @@
 const express = require('express');
-const Student = require('../models/Student');
+const Institution = require('../models/Institution');
 
 const router = express.Router();
 
-// access
-
 router.get('/', async (req, res) => {
     try{
-        const student = await Student.find();
-        res.json(student);   
+        const institution = await Institution.find();
+        res.json(institution);   
     }
     catch(err){
         res.json({ message: err });
@@ -18,10 +16,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     // console.log(req.params.id);
     try{
-        const regId = req.params.id;
-        const student = await Student.find().where('regId').equals(regId);
-        console.log(student);
-        res.json(student);
+        const uniqId = req.params.id;
+        const institution = await Institution.find().where('uniqId').equals(uniqId);
+        console.log(institution);
+        res.json(institution);
     }
     catch(err){
         console.log('error');
