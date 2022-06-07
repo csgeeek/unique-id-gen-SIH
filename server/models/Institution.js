@@ -15,11 +15,13 @@ const StudentSchema = mongoose.Schema({
 const InstitutionSchema = mongoose.Schema({
     institutionId: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     institutionName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     students: [
         StudentSchema
