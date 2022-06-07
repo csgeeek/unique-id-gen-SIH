@@ -44,11 +44,54 @@ router.get('/:id1/:id2', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    const institutionsList = await Institution.find();
     const institution = new Institution({
         institutionId: req.body.institutionId,
+        institutionName: req.body.institutionName,
         students: req.body.students
     });
+    function nextLetter(s){
+        return s.replace(/([a-zA-Z])[^a-zA-Z]*$/, function(a){
+            var c= a.charCodeAt(0);
+            switch(c){
+                case 90: return 'A';
+                case 122: return 'a';
+                default: return String.fromCharCode(++c);
+            }
+        });
+    }
     try{
+        if(institutionsList.length === 0){
+            institution.institutionId = 'AAAA';
+        }
+        else{
+            const lastInstitution = institutionsList[institutionsList.length - 1];
+            let lastInstitutionId = lastInstitution.institutionId;
+
+            if(lastInstitutionId === 'ZZZZ'){
+                res.json({ message: 'Maximum number of institutions reached' });
+            }
+
+            let newId = '', i = 3;
+            for(i = 3; i >= 0 ; i--){
+                if(lastInstitutionId[i] === 'Z'){
+                    newId += 'A';
+                }
+                else{
+                    newId += (nextLetter(lastInstitutionId[i]));
+                    i--;
+                    break;
+                }
+            }
+
+            for(let j = i; j >= 0; j--){
+                newId += lastInstitutionId[j];
+            }
+
+            // reverse the string 
+            newId = newId.split('').reverse().join('');
+            institution.institutionId = newId;
+        }
         await institution.save();
         res.json(institution);
     }

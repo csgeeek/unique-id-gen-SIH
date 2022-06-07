@@ -7,10 +7,6 @@ const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.DB_URI, () => console.log('connected to db'));
 
-// const universityIdGenerator = () => {
-    
-// };
-
 // MIDDLEWARES
 app.use(cors());
 app.use(express.json());
