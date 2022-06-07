@@ -17,6 +17,10 @@ const InstitutionSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    institutionName: {
+        type: String,
+        required: true
+    },
     students: [
         StudentSchema
     ]
