@@ -13,7 +13,7 @@ import {
 } from 'react-router-dom';
 
 
-function App() {
+const App = () => {
   
   const [show, setShow] = useState(1);
 
