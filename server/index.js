@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 mongoose.connect(process.env.DB_URI, () => console.log('connected to db'));
 
 // MIDDLEWARES
+
 app.use(cors());
 app.use(express.json());
 const govtRoutes = require('./routes/govt');
